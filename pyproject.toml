@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "community.memex"
+version = "0.1.0"
+description = "Turn personal exports and archives into SQLite for exploration in Datasette."
+readme = "README.md"
+requires-python = ">=3.9"
+authors = [{ name = "Maik Röder", email = "maikroeder@gmail.com" }]
+keywords = ["sqlite", "datasette", "personal-data", "gmail", "mbox", "takeout", "dogsheep"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Database",
+    "Topic :: Communications :: Email",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+memex = "memex.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/memex"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
