@@ -236,8 +236,10 @@ def parse_message(raw, store_attachments=True, keep_html=True, max_body=5_000_00
         try:
             dt = email.utils.parsedate_to_datetime(date_raw)
             if dt is not None:
-                if dt.tzinfo is not None:
-                    dt = dt.astimezone(timezone.utc)
+                # Aware → convert to UTC. A naive result is a "-0000" header
+                # (RFC 5322: time is UTC, local unknown) — stamp UTC, don't shift.
+                dt = (dt.astimezone(timezone.utc) if dt.tzinfo
+                      else dt.replace(tzinfo=timezone.utc))
                 rec["date"] = dt.isoformat()
                 rec["year"] = dt.year
         except Exception:
