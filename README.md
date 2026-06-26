@@ -80,7 +80,7 @@ Each source's behaviour is specified alongside its code (SDD):
 | [Gmail](specs/gmail.md) | Draft | Google Takeout mbox → SQLite — streaming parse, labels, dates, attachments, FTS; resumable |
 | Claude | Planned | Claude `conversations.json` export → SQLite |
 
-The cross-source **Source Manifest** design (a per-item index + fingerprint) lives in `community.selfhosted/specs/source-manifest.md`.
+The cross-source **Source Manifest** design (a per-item index + checksum) lives in `community.selfhosted/specs/source-manifest.md`.
 
 ## Develop
 

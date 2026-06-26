@@ -82,7 +82,7 @@ Gmail-label faceting, and sortable dates. Exposed as the `memex gmail` subcomman
 
 - Should `gmail` become the first **item iterator** for the cross-source *Source
   Manifest* (spec in community.selfhosted) — feeding `mbox_offset` as the locator and
-  a per-message (and per-attachment) MD5 as the fingerprint?
+  a per-message (and per-attachment) MD5 as the checksum?
 - Thread reconstruction: expose a `threads` view keyed by `gmail_thread_id`?
 - Should label parsing normalise Gmail's category labels (e.g. `Category Personal`)?
 - Optionally store decoded attachment text (for FTS over attachment contents)?
